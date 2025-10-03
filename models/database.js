@@ -6,7 +6,7 @@ let pool = mysql2.createPool({
     user: process.env.DB_USER,
     password:  process.env.DB_PASS,
     database:  process.env.DB_NAME,
-    port:3001
+    port:  process.env.PORT
 });
 
 module.exports = pool
