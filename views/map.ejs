@@ -1,0 +1,43 @@
+<%- include('./includes/header.ejs') %>
+<!-- Banner / Hero Map -->
+<div class="container-fluid px-0">
+  <div class="position-relative">
+    <!-- Image pleine largeur, crop propre -->
+<img src="<%= map.map_img %>" alt="<%= map.map_name %>"
+     class="w-100" style="max-height: 500px; object-fit: cover;">
+
+    <!-- Overlay texte -->
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+      <h1 class="display-5 fw-bold mb-2"><%= map.map_name %></h1>
+      <p class="lead mb-0">Choisis ton agent pour cette map</p>
+    </div>
+  </div>
+</div>
+<!--Agent card-->
+<section class="container py-5">
+  <h2 class="mb-4 text-center">Tous les Agents</h2>
+  <div class="row g-3">
+    <% for (agent of agents) { %>
+      <div class="col-md-2 col-sm-4 col-6">
+        <!-- Lien qui englobe toute la carte -->
+        <a href="/posts/map/<%= map.id %>/agent/<%= agent.id %>" class="text-decoration-none text-dark">
+        <div class="card shadow-sm h-100 text-center">
+
+            <!-- Conteneur fixe pour l'image -->
+            <div class="img-container">
+              <img src="<%= agent.agent_img %>" alt="<%= agent.agent_name %>">
+            </div>
+
+            <!-- Contenu de la carte -->
+            <div class="card-body p-2">
+              <h6 class="card-title text-dark mb-1"><%= agent.agent_name %></h6>
+              <span class="badge bg-danger"><%= agent.role_name %></span>
+            </div>
+
+          </div>
+        </a>
+      </div>
+    <% } %>
+  </div>
+</section>
+<%- include('./includes/footer.ejs') %>

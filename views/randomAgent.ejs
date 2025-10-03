@@ -1,0 +1,22 @@
+<%- include('./includes/header.ejs') %>
+
+<section class="text-center my-5">
+  <div class="container py-5 rounded shadow-sm" style="background:#f8f9fa;">
+    <!-- Titre -->
+    <h2 class="fw-bold text-danger mb-4">🎯 Agent Aléatoire</h2>
+    <p class="mb-4">Besoin d’un défi ? Laissez la chance choisir votre agent Valorant.</p>
+
+    <!-- Résultat -->
+    <div id="agent-name" class="h4 text-dark mb-3"></div>
+    <div id="random-img" class="contain-img mb-4"></div>
+
+    <!-- Bouton -->
+    <button class="btn btn-danger btn-lg px-4 fw-bold" id="btn">
+      Lancer la roulette
+    </button>
+  </div>
+</section>
+
+<script src="/script/agent.js"></script>
+
+<%- include('./includes/footer.ejs') %>

@@ -1,0 +1,22 @@
+
+<%- include('./includes/header.ejs') %>
+<section class="text-center my-5">
+  <div class="container py-5 rounded shadow-sm" style="background:#f8f9fa;">
+    <h2 class="fw-bold text-danger mb-4">
+      🎲 Armurerie Aléatoire Valorant
+    </h2>
+    <p class="mb-4">Équipez-vous de puissance et laissez le hasard décider !</p>
+
+    <!-- Zone résultat -->
+    <div id="waypont-name" class="h4 text-dark mb-3"></div>
+    <div id="random-img" class="contain-img mb-4"></div>
+
+    <!-- Bouton -->
+    <button class="btn btn-danger btn-lg px-4 py-2 fw-bold" id="btn">
+      Lancer la roulette
+    </button>
+  </div>
+</section>
+
+<script src="/script/app.js"></script>
+<%- include('./includes/footer.ejs') %>

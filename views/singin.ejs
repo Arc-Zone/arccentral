@@ -1,0 +1,65 @@
+<%- include('./includes/header.ejs') %>
+
+<section class="d-flex align-items-center justify-content-center bg-dark" style="min-height: 100vh;">
+  <div class="container">
+    <div class="row shadow-lg rounded-4 overflow-hidden bg-white">
+      
+    <!-- Colonne gauche : illustration / branding -->
+<div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center text-white p-5" 
+     style="background: url('/img/loginPage/giphy.gif') center center / cover no-repeat;">
+
+  <div class="text-center bg-dark bg-opacity-50 p-4 rounded">
+    <h2 class="fw-bold mb-4">Bienvenue sur ARC 🎮</h2>
+    <p class="lead">Rejoins la communauté et partage tes guides et stratégies Valorant.</p>
+  </div>
+
+</div>
+
+      <!-- Colonne droite : formulaire -->
+      <div class="col-lg-6 col-12 p-5">
+        <h2 class="fw-bold text-center mb-4 text-danger">Créer un compte</h2>
+
+
+        <form action="/register" method="POST">
+
+          <!-- Pseudo -->
+          <div class="mb-4">
+            <label for="username" class="form-label fw-semibold">Pseudo</label>
+            <input type="text" name="username" id="username" 
+                   class="form-control form-control-lg" placeholder="Ton pseudo" required>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-4">
+            <label for="email" class="form-label fw-semibold">Email</label>
+            <input type="email" name="email" id="email" 
+                   class="form-control form-control-lg" placeholder="exemple@email.com" required>
+          </div>
+
+          <!-- Mot de passe -->
+          <div class="mb-4">
+            <label for="password" class="form-label fw-semibold">Mot de passe</label>
+            <input type="password" name="password" id="password" 
+                   class="form-control form-control-lg" placeholder="********" required>
+          </div>
+
+
+          <!-- Bouton -->
+          <div class="d-grid mb-3">
+            <button type="submit" class="btn btn-danger btn-lg fw-bold shadow-sm">
+              🚀 S'inscrire
+            </button>
+          </div>
+
+          <!-- Lien connexion -->
+          <p class="text-center mb-0">
+            Déjà un compte ? 
+            <a href="/login" class="text-danger fw-bold text-decoration-none">Se connecter</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('./includes/footer.ejs') %>

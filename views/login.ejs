@@ -1,0 +1,32 @@
+<%- include('./includes/header.ejs') %>
+
+<section class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background: #0f1923;">
+  <div class="card shadow-lg border-0" style="max-width: 400px; width: 100%;">
+    <div class="card-header bg-danger text-white text-center">
+      <h3 class="mb-0">Connexion Admin</h3>
+    </div>
+    <div class="card-body p-4">
+   
+      <form action="/login" method="POST">
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Adresse email</label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="admin@email.com" required>
+        </div>
+
+        <!-- Mot de passe -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input type="password" name="password" id="password" class="form-control" placeholder="********" required>
+        </div>
+
+        <!-- Bouton -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-danger">Se connecter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('./includes/footer.ejs') %>

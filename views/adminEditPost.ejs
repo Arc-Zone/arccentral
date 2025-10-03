@@ -1,0 +1,84 @@
+<%- include('./includes/header.ejs') %>
+
+<div class="container my-5">
+  <!-- Fil d’Ariane -->
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+      <li class="breadcrumb-item active">Modifier</li>
+    </ol>
+  </nav>
+
+  <h1 class="mb-4 text-warning">✏️ Modifier Post</h1>
+
+  <form action="/admin/posts/edit/<%= post.id %>" method="POST" class="row g-3">
+
+    <!-- Titre -->
+    <div class="col-md-6">
+      <label class="form-label">Titre</label>
+      <input type="text" name="title" class="form-control" value="<%= post.title %>" required>
+    </div>
+
+    <!-- Type -->
+    <div class="col-md-6">
+      <label class="form-label">Type</label>
+      <input type="text" name="type" class="form-control" value="<%= post.type %>" required>
+    </div>
+
+    <!-- Description -->
+    <div class="col-12">
+      <label class="form-label">Description</label>
+      <textarea name="description" class="form-control" rows="2" required><%= post.description %></textarea>
+    </div>
+
+    <!-- Contenu -->
+    <div class="col-12">
+      <label class="form-label">Contenu</label>
+      <textarea name="content" class="form-control" rows="5" required><%= post.content %></textarea>
+    </div>
+
+    <!-- Image -->
+    <div class="col-md-6">
+      <label class="form-label">Image (URL)</label>
+      <input type="text" name="img" class="form-control" value="<%= post.img %>" required>
+    </div>
+
+    <!-- Vidéo -->
+    <div class="col-md-6">
+      <label class="form-label">Vidéo (URL)</label>
+      <input type="text" name="video_url" class="form-control" value="<%= post.video_url %>">
+    </div>
+
+    <!-- Agent -->
+    <div class="col-md-6">
+      <label class="form-label">Agent</label>
+      <select name="agent_id" class="form-select" required>
+        <% agents.forEach(agent => { %>
+          <option value="<%= agent.id %>" <%= agent.id === post.agent_id ? 'selected' : '' %>>
+            <%= agent.agent_name %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <!-- Map -->
+    <div class="col-md-6">
+      <label class="form-label">Map</label>
+      <select name="map_id" class="form-select" required>
+        <% maps.forEach(map => { %>
+          <option value="<%= map.id %>" <%= map.id === post.map_id ? 'selected' : '' %>>
+            <%= map.map_name %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <!-- Boutons -->
+    <div class="col-12">
+      <button type="submit" class="btn btn-warning">Mettre à jour</button>
+      <a href="/admin" class="btn btn-secondary">Annuler</a>
+    </div>
+  </form>
+</div>
+
+<%- include('./includes/footer.ejs') %>

@@ -1,0 +1,24 @@
+<%- include('./includes/header.ejs') %>
+
+<section class="d-flex align-items-center justify-content-center" 
+         style="min-height: 80vh; background:#0f1923; color:white;">
+
+  <div class="text-center">
+    <!-- Code d'erreur -->
+    <h1 class="fw-bold display-1" style="color:#ff4655;">404</h1>
+
+    <!-- Message -->
+    <h2 class="fw-bold mb-3">🚫 Page introuvable</h2>
+    <p class="mb-4">
+      <%= typeof message !== 'undefined' ? message : "Oups... ce contenu n'existe pas ou a été supprimé." %>
+    </p>
+
+    <!-- Bouton retour -->
+    <a href="/" class="btn btn-lg px-4 fw-bold" 
+       style="background:#ff4655; border:none; color:white;">
+      ⬅ Retour à l'accueil
+    </a>
+  </div>
+</section>
+
+<%- include('./includes/footer.ejs') %>

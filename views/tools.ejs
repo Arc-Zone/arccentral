@@ -1,0 +1,78 @@
+<%- include('./includes/header.ejs') %>
+
+<!-- Banner / Hero -->
+<div class="container-fluid px-0 mb-5">
+  <div class="position-relative">
+    <!-- Image de bannière -->
+    <img src="/img/tools/tools-banner.png" 
+         alt="Bannière Outils Valorant" 
+         class="w-100" style="max-height: 400px; object-fit: cover;">
+
+    <!-- Texte overlay -->
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+      <h1 class="display-4 fw-bold">Découvrez nos outils</h1>
+      <p class="lead">Des fonctionnalités fun & pratiques pour Valorant 🎮</p>
+    </div>
+  </div>
+</div>
+
+<!-- Contenu principal -->
+<div class="container my-5">
+
+  <!-- Titre -->
+  <div class="text-center mb-5">
+    <h1 class="display-3 fw-bold text-danger">Nos Outils</h1>
+    <p class="lead text-dark">
+      Des petits outils fun et pratiques pour pimenter vos games Valorant 🎮
+    </p>
+  </div>
+
+  <!-- Cards des tools -->
+  <div class="row g-4">
+    
+    <!-- Random Team Generator -->
+    <div class="col-md-6 col-lg-4">
+      <a href="/random-team" class="card border-0 shadow-sm h-100 text-decoration-none text-dark d-block">
+        <img src="/img/tools/random-team.png" class="card-img-top" alt="Random Team">
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold text-danger">🎲 Random Team</h5>
+          <p class="card-text text-dark">
+            Génère des équipes aléatoires en un clic. Idéal pour des scrims entre potes sans prise de tête.
+          </p>
+          <span class="btn btn-danger">Tester</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Random Weapons -->
+    <div class="col-md-6 col-lg-4">
+      <a href="/random-waypoint" class="card border-0 shadow-sm h-100 text-decoration-none d-block" style="color: inherit;">
+        <img src="/img/tools/random-weapons.png" class="card-img-top" alt="Random Weapons">
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold text-danger">🔫 Random Weapons</h5>
+          <p class="card-text">
+            Équipe-toi d’armes aléatoires à chaque round
+          </p>
+          <span class="btn btn-danger">Tester</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Future tools -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-0 shadow-sm h-100">
+        <img src="/img/tools/coming-soon.png" class="card-img-top" alt="Coming soon">
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold text-danger">⚡ À venir</h5>
+          <p class="card-text text-dark">
+            De nouveaux outils sont en préparation pour rendre vos games encore plus déjantées !
+          </p>
+          <a href="#" class="btn btn-outline-danger disabled">Bientôt dispo</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%- include('./includes/footer.ejs') %>

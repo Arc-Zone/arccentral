@@ -1,0 +1,281 @@
+/* ===== Variables couleurs ===== */
+:root {
+  --valorant-red: #FF4655;
+  --valorant-red-hover: #FF596A;
+  --bg-dark: #0F1923;
+  --text-white: #FFFFFF;
+  --text-secondary: #F3F4F6;
+  --bg-card: #1C252E;
+
+  /* Discord */
+  --discord-blue: #5865F2;
+  --discord-blue-hover: #7983F5;
+}
+
+/* ===== Reset de base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid #2A3440;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.logo a {
+    text-decoration: none;
+}
+.logo .ace {
+  color: var(--valorant-red);
+  text-shadow: 0 0 8px rgba(255, 70, 85, 0.6);
+}
+
+.logo .zone {
+  color: var(--text-white);
+  margin-left: 2px;
+}
+
+/* Menu principal */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  transition: height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: var(--valorant-red);
+}
+
+/* ===== Boutons ===== */
+.cta-btn {
+  background-color: var(--valorant-red);
+  color: var(--text-white);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: var(--valorant-red-hover);
+}
+
+.cta-discord {
+  background-color: var(--discord-blue);
+  color: var(--text-white);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-discord:hover {
+  background-color: var(--discord-blue-hover);
+}
+
+/* ===== Menu burger pour mobile ===== */
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-white);
+  transition: all 0.3s ease;
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: var(--bg-card);
+    flex-direction: column;
+    align-items: flex-start;
+    width: 220px;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    opacity: 0;
+  }
+
+  .nav-links.nav-active {
+    height: auto;
+    padding: 1rem;
+    opacity: 1;
+  }
+
+  .nav-links li {
+    width: 100%;
+    padding: 0.8rem 0;
+  }
+
+  .nav-links li a {
+    width: 100%;
+    display: block;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  /* Animation burger */
+  .burger.toggle div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .burger.toggle div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.toggle div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+/* Conteneur pour forcer une hauteur identique */
+.img-container {
+  width: 100%;
+  height: 250px;          /* Hauteur fixe pour toutes les images */
+  overflow: hidden;       /* Cache la partie qui dépasse */
+  display: flex;
+  align-items: center;    /* Centre verticalement */
+  justify-content: center;/* Centre horizontalement */
+  background-color: #19222d; /* Optionnel : fond noir derrière les images */
+}
+
+.img-container img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;      /* Coupe proprement si nécessaire */
+}
+
+.post-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.card img {
+  border-radius: 8px;
+}
+
+.tiktok-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+.post-content {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 8px 12px;
+}
+.contain-img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background: #111;
+  border: 3px solid #ff4655; /* rouge valorant */
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contain-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#waypont-name {
+  font-weight: bold;
+  color: #0f1923;
+}
+
+.btn-danger {
+  background-color: #ff4655;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-danger:hover {
+  background-color: #e63e4d;
+  transform: scale(1.05);
+}
+
+/* Footer custom */
+footer .footer-subtitle {
+  color: rgba(255, 255, 255, 0.6); /* gris clair lisible */
+}
+
+footer .footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer .footer-link:hover {
+  color: #ff4655; /* rouge Valorant au hover */
+}
+
+footer .footer-social {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.3rem;
+  transition: color 0.2s;
+}
+
+footer .footer-social:hover {
+  color: #ff4655;
+}
+
+footer .footer-copy {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}

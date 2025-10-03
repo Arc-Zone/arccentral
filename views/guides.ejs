@@ -1,0 +1,78 @@
+<%- include('./includes/header.ejs') %>
+<style>
+  .card {
+    transition: transform 0.2s ease;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+</style>
+<!-- ===== HERO SECTION ===== -->
+<section class="hero container py-5 text-center text-lg-start">
+  <div class="row align-items-center">
+    <div class="col-lg-6">
+      <h1 class="display-4 fw-bold">Guides</h1>
+      <p class="lead text-secondary mt-3">
+        Partage tes stratégies, découvre des guides et trouve ta future team grâce à notre communauté.
+      </p>
+      <div class="mt-4 d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start">
+        <a href="#map" class="btn btn-danger btn-lg mb-3 mb-sm-0 me-sm-2">Découvrir les guides</a>
+        <a href="#" class="btn btn-secondary btn-lg">
+          <span class="text-white">Rejoindre le Discord</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-6 text-center mt-4 mt-lg-0">
+      <img src="https://www.riotgames.com/darkroom/1440/8d5c497da1c2eeec8cffa99b01abc64b:5329ca773963a5b739e98e715957ab39/ps-f2p-val-console-launch-16x9.jpg" alt="Sova" class="img-fluid rounded">
+    </div>
+  </div>
+</section>
+
+
+  <!-- ===== GUIDES RECENTS ===== -->
+  <section class="container py-5">
+    <h2 class="mb-4">Guides récents</h2>
+    <div class="row g-4">
+
+        
+      <!-- Carte Guide -->
+       <%for (lastguides of guides) {%>
+    <div class="col-md-4">
+    <a href="/posts/<%= lastguides.id %>" class="text-decoration-none text-white">
+        <div class="card guide-card h-100">
+        <img src="<%= lastguides.img %>" class="card-img-top" alt="Guide Valorant">
+        <div class="card-body">
+            <h5 class="card-title"><%= lastguides.title %></h5>
+            <p class="card-text text-secondary"><%= lastguides.description %></p>
+            <span class="badge bg-danger"><%= lastguides.type %></span>
+            <span class="badge bg-secondary">Ascent</span>
+        </div>
+        </div>
+    </a>
+    </div>
+
+<%}%>
+      </div>
+  </section>
+  <!--Carte Map-->
+<section class="container py-5">
+  <h2 class="mb-4 text-center" id="map">Choisis une Map</h2>
+  <div class="row g-4">
+    <% maps.forEach(map => { %>
+      <div class="col-md-4">
+        <a href="/maps/<%= map.id %>" class="text-decoration-none">
+          <div class="card shadow-sm h-100">
+            <img src="<%= map.map_img %>" class="card-img-top" alt="<%= map.map_name %>">
+            <div class="card-body text-center">
+              <h5 class="card-title text-dark"><%= map.map_name %></h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+</section>
+
+<%- include('./includes/footer.ejs') %>
+
+
