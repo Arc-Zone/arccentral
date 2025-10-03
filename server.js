@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
-const routes = require('./routes/routes.js'); // <- récupère directement un Router
+const routes = require('./routes/routes.js');
 
 const app = express();
 
@@ -26,16 +26,13 @@ app.use(
   })
 );
 
-// rendre la session dispo dans tes vues
 app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
 });
 
-// ✅ ici ton router marche direct
+// ✅ router
 app.use('/', routes);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
+// ✅ Important : pas de app.listen sur O2switch
+module.exports = app;
