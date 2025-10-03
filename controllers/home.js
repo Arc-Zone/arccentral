@@ -1,14 +1,12 @@
 const db = require('../models/database.js')
 
-exports.home = async (req, res) => {
-  try {
-    const [rows] = await pool.query("SELECT NOW()");
-    res.render("home", { now: rows[0].now });
-  } catch (err) {
-    console.error("DB error:", err);
-    res.status(500).send("Erreur DB");
-  }
-};
+async function home (req, res) {
+
+//  let [lastedGuidesRows , lastedGuidesFields] = await db.query(`SELECT * FROM post `)
+  
+    res.render('home.ejs' )
+}
+
 
 async function guides (req , res){
     let [lastedGuidesRows , lastedGuidesFields] = await db.query(`SELECT * FROM post `)
@@ -115,6 +113,7 @@ function notFound (req ,res){
   res.render('notFound.ejs')
 }
 module.exports.containPost = containPost
+module.exports.home = home
 module.exports.guides = guides
 module.exports.map = map
 module.exports.postPerMap = postPerMap
