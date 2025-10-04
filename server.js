@@ -1,3 +1,5 @@
+console.log("🚀 server.js loaded");
+
 try {
   require("dotenv").config();
 } catch (e) {
