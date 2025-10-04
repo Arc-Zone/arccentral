@@ -1,4 +1,3 @@
-// Charge dotenv UNIQUEMENT si le fichier existe (local dev)
 try {
   require("dotenv").config();
 } catch (e) {
