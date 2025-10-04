@@ -1,11 +1,23 @@
 const db = require('../models/database.js')
 
-async function home (req, res) {
+const db = require("../models/database");
 
-//  let [lastedGuidesRows , lastedGuidesFields] = await db.query(`SELECT * FROM post `)
-  
-    res.render('home.ejs' )
+async function home(req, res) {
+  try {
+    // Exemple de requête
+    const [rows] = await db.query("SELECT * FROM post");
+
+    // Tu passes tes données à ta vue
+    res.render("home.ejs", { posts: rows });
+  } catch (err) {
+    console.error("❌ Erreur DB dans home():", err.message);
+    // Tu affiches quand même la page au lieu de crash
+    res.render("home.ejs", { posts: [] });
+  }
 }
+
+module.exports = { home };
+
 
 
 async function guides (req , res){
