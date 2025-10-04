@@ -46,7 +46,7 @@ app.use("/", routes);
 
 // ✅ Démarrage : Passenger fournit PORT (production), sinon fallback local
 if (!module.parent) {
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT;
   app.listen(port, () => {
     console.log(`🚀 Server running on port ${port}`);
   });
