@@ -14,10 +14,6 @@ async function home(req, res) {
   }
 }
 
-module.exports = { home };
-
-
-
 async function guides (req , res){
     let [lastedGuidesRows , lastedGuidesFields] = await db.query(`SELECT * FROM post `)
     let [maps] = await db.query(`SELECT * FROM maps`)
