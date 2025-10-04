@@ -1,7 +1,5 @@
 const db = require('../models/database.js')
 
-const db = require("../models/database");
-
 async function home(req, res) {
   try {
     // Exemple de requête
