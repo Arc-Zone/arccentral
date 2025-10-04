@@ -31,8 +31,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ router
+// ✅ Routes
 app.use('/', routes);
 
-// ✅ Important : pas de app.listen sur O2switch
+// ✅ Démarrage : Passenger fournit PORT, sinon fallback local
+if (!module.parent) {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`🚀 Server running on port ${port}`);
+  });
+}
+
 module.exports = app;
