@@ -1,17 +1,26 @@
-require("dotenv").config();
-const express = require('express');
+// Charge dotenv UNIQUEMENT si le fichier existe (local dev)
+try {
+  require("dotenv").config();
+} catch (e) {
+  console.log("⚠️ Pas de .env trouvé, on utilise les variables d'environnement du serveur.");
+}
+
+const express = require("express");
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
-const routes = require('./routes/routes.js');
+const routes = require("./routes/routes.js");
 
 const app = express();
 
-app.use(express.static('public'));
+// Middlewares
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
 
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/views");
+
+// Session
 app.use(
   session({
     store: new FileStore({}),
@@ -26,15 +35,16 @@ app.use(
   })
 );
 
+// Rendre la session dispo dans toutes les vues
 app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
 });
 
 // ✅ Routes
-app.use('/', routes);
+app.use("/", routes);
 
-// ✅ Démarrage : Passenger fournit PORT, sinon fallback local
+// ✅ Démarrage : Passenger fournit PORT (production), sinon fallback local
 if (!module.parent) {
   const port = process.env.PORT || 3000;
   app.listen(port, () => {
