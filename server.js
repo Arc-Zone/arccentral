@@ -1,11 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-
-// Rediriger les erreurs serveur vers un fichier
-const logPath = path.join(__dirname, "tmp", "error.log");
-const logStream = fs.createWriteStream(logPath, { flags: "a" });
-process.stdout.write = process.stderr.write = logStream.write.bind(logStream);
-
 const express = require("express");
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
