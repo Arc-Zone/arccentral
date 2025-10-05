@@ -1,5 +1,4 @@
-console.log("🚀 server.js loaded");
-
+// Charge dotenv UNIQUEMENT si le fichier existe (local dev)
 try {
   require("dotenv").config();
 } catch (e) {
@@ -36,12 +35,21 @@ app.use(
   })
 );
 
+// Rendre la session dispo dans toutes les vues
 app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
 });
 
+// ✅ Routes
 app.use("/", routes);
 
-// ❌ ne démarre rien ici
+// ✅ Démarrage : Passenger fournit PORT (production), sinon fallback local
+if (!module.parent) {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`🚀 Server running on port ${port}`);
+  });
+}
+
 module.exports = app;
