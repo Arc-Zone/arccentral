@@ -1,10 +1,3 @@
-// Charge dotenv UNIQUEMENT si le fichier existe (local dev)
-try {
-  require("dotenv").config();
-} catch (e) {
-  console.log("⚠️ Pas de .env trouvé, on utilise les variables d'environnement du serveur.");
-}
-
 const express = require("express");
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
