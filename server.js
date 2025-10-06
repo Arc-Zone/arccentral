@@ -5,7 +5,7 @@ const routes = require("./routes/routes.js");
 
 const app = express();
 
-// Middlewares
+// ===== MIDDLEWARES =====
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
-// Session
+// ===== SESSIONS =====
 app.use(
   session({
     store: new FileStore({}),
@@ -34,18 +34,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ Routes
+// ===== ROUTES =====
 app.use("/", routes);
 
+// ===== DÉMARRAGE =====
+// Passenger (production) n’a pas besoin d’app.listen().
+// Mais en mode local (node server.js), oui.
 if (require.main === module) {
-  // ✅ Local mode (ex: "node server.js")
-  const port = process.env.PORT || 3000;
-  app.listen(port, "passenger", () => {
-    console.log(`🚀 Server running locally on port ${port}`);
-  });
+  const port = process.env.PORT || 4000; // port libre pour tests SSH
+  app.listen(port, () => console.log(`🚀 App running locally on port ${port}`));
 } else {
-  // ✅ Production mode (géré par Passenger)
   module.exports = app;
 }
-
-module.exports = app;
