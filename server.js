@@ -37,12 +37,15 @@ app.use((req, res, next) => {
 // ✅ Routes
 app.use("/", routes);
 
-// ✅ Démarrage : Passenger fournit PORT (production), sinon fallback local
-if (!module.parent) {
+if (require.main === module) {
+  // ✅ Local mode (ex: "node server.js")
   const port = process.env.PORT || 3000;
-  app.listen(port, () => {
-    console.log(`🚀 Server running on port ${port}`);
+  app.listen(port, "passenger", () => {
+    console.log(`🚀 Server running locally on port ${port}`);
   });
+} else {
+  // ✅ Production mode (géré par Passenger)
+  module.exports = app;
 }
 
 module.exports = app;
